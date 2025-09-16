@@ -1,0 +1,8 @@
+# Model YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/models
+
+type: model
+materialize: true
+
+connector: duckdb
+sql: "select * exclude timestamp, make_timestamp(timestamp*1000*1000) as timestamp from read_csv('data/demo_rideshare_usecase2_Table.csv', auto_detect=true, ignore_errors=1, header=true)"
